@@ -1,7 +1,9 @@
-#import the Classes made in the othe Python files:
-from utils.table import Table
+#import the Classes made in the other Python files (table.py and openspace.py):
+#table is not imported here, because it's already imported in openspace.py
 from utils.openspace import Openspace
+#import the module csv to be able to open, write and add information
 import csv
+
 #open the csv file and read the file
 file = open('new_colleagues.csv') 
 csvreader = csv.reader(file)
@@ -9,9 +11,9 @@ csvreader = csv.reader(file)
 names = []
 for name in file:
     names.append(name.strip())
-print("List of names from the CSV: ",names)
+
 
 openspace = Openspace(names)
 openspace.organize()
+openspace.store('new_colleagues.csv')
 openspace.display()
-openspace.store("new_colleagues.csv")
